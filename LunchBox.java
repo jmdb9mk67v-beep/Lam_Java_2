@@ -4,6 +4,8 @@
  * 
  */
 
+
+
 public class LunchBox {
   
   // We keep it private so nobody outside da
@@ -40,6 +42,17 @@ public class LunchBox {
     this.price = price;
     this.isDelivered = false;
   }   // End of Arguments Constructor Block
+
+  private String freeDessert;
+  public String getFreeDessert() {
+    return freeDessert;
+  }
+  public void setFreeDessert(
+    String freeDessert
+  ) {
+    this.freeDessert = freeDessert;    
+  } 
+  //  End of Free Dessert Block
 
 
 /**
@@ -114,29 +127,25 @@ public void markDelivered() {
   this.isDelivered = true;
 }
 public void displayOrder() {
-  System.out.println(
-    "Customer: " + customerName
-  );
-  System.out.println(
-    "Item: " + mainItem
-  );
-  System.out.println(
-    "Quantity: " + quantity
-  );
-  System.out.println(
-    "Lunch Price: $" + price
-  );
-  System.out.println(
-    "Total: $" + calculateCost()
-  );
-  System.out.println(
-    "Delivered: " + isDelivered
-  );
-  System.out.println(
-    "-------------------------"
-  );
+  System.out.println("Customer: " + customerName);
+  System.out.println("Item: " + mainItem);
+  System.out.println("Quantity: " + quantity);
+  System.out.printf("Lunch Price: $%.2f%n", price);
+  System.out.printf("Total: $%.2f%n", calculateCost());
+  
+  if (isDelivered) {
+            System.out.println("Delivered: Success!");
+        } else {
+            System.out.println("Delivery in 30 min or it's free!");
+        }
+
+        //  Display Dessert Block
+        System.out.println("Promotion: Free Dessert! " + freeDessert);
+        // End Display Dessert BLock
+
+  System.out.println("-------------------------");
   } // End of Action Methods BLock
-}// End LunchBox Class BLock
+}// End LunchBox Class BLock - TA DA!
 
 
 
